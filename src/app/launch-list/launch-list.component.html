@@ -29,7 +29,7 @@
           onerror="this.src='https://placeimg.com/200/300/animals';"
           />
           <loader [waitingList]="waitingList"></loader>
-          <button class="cancel-btn" (click)="cancelLoading($event)" *ngIf="showCancelLoadingBtn">Cancel Loading</button>
+          <button class="btn cancel-btn" (click)="cancelLoading($event)" *ngIf="showCancelLoadingBtn">Cancel Loading</button>
       </mat-card>
     </section>
   </main>

@@ -1,7 +1,42 @@
-.photo-grid {
+.launch-card-photos, .launch-card-details {
   padding-top: 30px;
-  display: grid;
-  grid-gap: 10px;
-  grid-template-columns: repeat(auto-fill, 300px);
-  justify-content: center;
+  width: 48%
+}
+.details-container {
+  display: flex;
+  height: 100%;
+}
+.launch-card-photos {
+  margin-left: 1rem;
+}
+.flickr-images {
+  display: flex;
+  overflow: hidden;
+}
+.flickr-image {
+  margin: .5rem;
+  width: 100px;
+  min-width: 100px;
+  height: 100px;
+  max-width: 100px;
+}
+.photo-container {
+  display: flex;
+}
+:host ::ng-deep .mat-card {
+  height: calc(100% - 40px);
+}
+.arrow {
+  border: solid black;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
+}
+.right {
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+}
+.left {
+  transform: rotate(135deg);
+  -webkit-transform: rotate(135deg);
 }

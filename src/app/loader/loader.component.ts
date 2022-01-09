@@ -12,15 +12,17 @@ export class LoaderComponent implements OnInit {
     this.indicators = [];
   }
 
-  @Input() waitingList: ReplaySubject<boolean>;
+  @Input() waitingList: ReplaySubject<boolean> = new ReplaySubject();
 
   indicators: boolean[];
   isLoading: boolean = false;
 
   ngOnInit(): void {
     this.waitingList.subscribe(data => {
-      this.indicators.push(data);
-      this.checkLoading();
+      if (!!data) {
+        this.indicators.push(data);
+        this.checkLoading();
+      }
     })
   }
 

@@ -1,6 +1,6 @@
 import { LaunchFacadeService } from "./../services/launch-facade.service";
 import { Component, ChangeDetectionStrategy } from "@angular/core";
-import { ReplaySubject, timer } from 'rxjs';
+import { ReplaySubject } from 'rxjs';
 
 @Component({
   selector: "app-launch-list",

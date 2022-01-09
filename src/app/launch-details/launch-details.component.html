@@ -1,29 +1,37 @@
 <ng-container *ngIf="launchDetails$ | async as launchDetails">
-  <section style="padding-top: 20px;">
-    <mat-card style="width: 400px; margin: auto;">
-      <mat-card-header>
-        <mat-card-title>{{ launchDetails.mission_name }}</mat-card-title>
-      </mat-card-header>
-      <img
-        height="256"
-        width="256"
-        mat-card-image
-        [src]="launchDetails.links.mission_patch"
-        alt="Mission patch of {{ launchDetails.mission_name }}"
-      />
-      <mat-card-content>
-        <p>{{ launchDetails.details }}</p>
-      </mat-card-content>
-    </mat-card>
-  </section>
-  <section class="photo-grid">
-    <img
-      *ngFor="let pic of launchDetails.links.flickr_images"
-      [src]="pic"
-      alt="Picture of {{ launchDetails.mission_name }}"
-      height="300"
-      width="300"
-      loading="lazy"
-    />
+  <section class="details-container">
+    <section class="launch-card-details">
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title>{{ launchDetails.mission_name }}</mat-card-title>
+        </mat-card-header>
+        <img height="256" width="256" mat-card-image [src]="launchDetails.links.mission_patch"
+          alt="Mission patch of {{ launchDetails.mission_name }}" />
+        <mat-card-content>
+          <p>{{ launchDetails.details }}</p>
+        </mat-card-content>
+      </mat-card>
+    </section>
+    <section class="launch-card-photos">
+      <mat-card>
+        <mat-card-header>
+          <img mat-card-image height="400" width="300" [src]="selectedPic"
+            alt="There is no photo for {{ launchDetails.mission_name }}" />
+        </mat-card-header>
+        <mat-card-content class="photo-container">
+          <button class="btn" *ngIf="launchDetails.links?.flickr_images?.length > 0" (click)="showPhotos($event, direction.left)">
+            <i class="arrow left"></i>
+          </button>
+          <div class="flickr-images">
+            <img *ngFor="let pic of launchDetails.links.flickr_images" [src]="pic" (click)="onChangeImage(pic)"
+              alt="Picture of {{ launchDetails.mission_name }}" loading="lazy"
+              class="flickr-image" />
+          </div>
+          <button class="btn" *ngIf="launchDetails.links?.flickr_images?.length > 0" (click)="showPhotos($event, direction.right)">
+            <i class="arrow right"></i>
+          </button>
+        </mat-card-content>
+      </mat-card>
+    </section>
   </section>
 </ng-container>

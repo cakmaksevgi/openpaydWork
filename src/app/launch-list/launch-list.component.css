@@ -10,8 +10,5 @@
   cursor: pointer;
 }
 .cancel-btn {
-  color: #007cba;
-  background-color: white;
-  border: #ddd solid;
   margin-top: 0.2rem;
 }

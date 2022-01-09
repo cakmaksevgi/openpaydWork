@@ -1,4 +1,4 @@
-# src/app/launch-details/launch-details.frontend.graphql
+# src/app/launch-details/launch-details.graphql
 
 query launchDetails($id: ID!) {
   launch(id: $id) {
