@@ -3,7 +3,12 @@
     <section class="launch-card-details">
       <mat-card>
         <mat-card-header>
-          <mat-card-title>{{ launchDetails.mission_name }}</mat-card-title>
+          <mat-card-title>
+            <a href="/">
+              <i class="arrow left"></i>
+            </a>
+            <span>{{ launchDetails.mission_name }}</span>
+          </mat-card-title>
         </mat-card-header>
         <img height="256" width="256" mat-card-image [src]="launchDetails.links.mission_patch"
           alt="Mission patch of {{ launchDetails.mission_name }}" />
@@ -19,7 +24,7 @@
             alt="There is no photo for {{ launchDetails.mission_name }}" />
         </mat-card-header>
         <mat-card-content class="photo-container">
-          <button class="btn" *ngIf="launchDetails.links?.flickr_images?.length > 0" (click)="showPhotos($event, direction.left)">
+          <button class="navigate-btn" *ngIf="launchDetails.links?.flickr_images?.length > 0" (click)="showPhotos($event, direction.left)">
             <i class="arrow left"></i>
           </button>
           <div class="flickr-images">
@@ -27,7 +32,7 @@
               alt="Picture of {{ launchDetails.mission_name }}" loading="lazy"
               class="flickr-image" />
           </div>
-          <button class="btn" *ngIf="launchDetails.links?.flickr_images?.length > 0" (click)="showPhotos($event, direction.right)">
+          <button class="navigate-btn" *ngIf="launchDetails.links?.flickr_images?.length > 0" (click)="showPhotos($event, direction.right)">
             <i class="arrow right"></i>
           </button>
         </mat-card-content>
