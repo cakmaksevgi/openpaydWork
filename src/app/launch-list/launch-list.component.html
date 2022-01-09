@@ -12,12 +12,12 @@
             mat-card-avatar
             loading="lazy"
             [src]="launch.links.mission_patch_small"
-            alt="Mission patch of {{ launch.mission_name }}"
-          />
+            onerror="this.src='https://placeimg.com/200/300/animals';"
+            />
           <mat-card-title>{{ launch.mission_name }}</mat-card-title>
           <mat-card-subtitle
             >{{ launch.rocket.rocket_name }} - launched
-            {{ launch.launch_date_utc }}</mat-card-subtitle
+            {{ getLaunchedDateStr(launch.launch_date_utc) }}</mat-card-subtitle
           >
         </mat-card-header>
         <img
@@ -26,8 +26,10 @@
           mat-card-image
           loading="lazy"
           [src]="launch.links.flickr_images[0]"
-          alt="Photo of {{ launch.mission_name }}"
-        />
+          onerror="this.src='https://placeimg.com/200/300/animals';"
+          />
+          <loader [waitingList]="waitingList"></loader>
+          <button class="cancel-btn" (click)="cancelLoading($event)" *ngIf="showCancelLoadingBtn">Cancel Loading</button>
       </mat-card>
     </section>
   </main>

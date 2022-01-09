@@ -14,13 +14,15 @@ import { RelativeTimePipe } from "./core/helpers/pipes/relative-time/relative-ti
 import { StoreModule } from "@ngrx/store";
 import { EffectsModule } from "@ngrx/effects";
 import { StoreDevtoolsModule } from "@ngrx/store-devtools";
+import { LoaderComponent } from './loader/loader.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LaunchListComponent,
     LaunchDetailsComponent,
-    RelativeTimePipe
+    RelativeTimePipe,
+    LoaderComponent
   ],
   imports: [
     BrowserModule,
